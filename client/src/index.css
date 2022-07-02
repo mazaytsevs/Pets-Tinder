@@ -15,5 +15,28 @@ code {
 .main-div {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 15px;
+}
+
+.pet-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 25rem;
+  border-style: solid;
+  margin-top: 50px;
+}
+
+.card-img-top {
+  /* width: 100%;
+  height: 100%; */
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }

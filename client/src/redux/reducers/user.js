@@ -7,7 +7,7 @@ export const getInitState = () => {
   return stateFromLS || initialState;
 };
 
-const postReducer = (state = initialState, { type, payload } = {}) => {
+const userReducer = (state = initialState, { type, payload } = {}) => {
   // const { type, payload } = action;
 
   switch (type) {
@@ -22,4 +22,4 @@ const postReducer = (state = initialState, { type, payload } = {}) => {
   }
 };
 
-export default postReducer;
+export default userReducer;

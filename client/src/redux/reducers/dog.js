@@ -1,4 +1,4 @@
-import { GET_DOG } from '../constants/constants';
+import { GET_DOG, CREATE_LIKE, CREATE_DISLIKE } from '../constants/constants';
 
 const initialState = {};
 
@@ -11,6 +11,8 @@ const dogReducer = (state = initialState, { type, payload } = {}) => {
   switch (type) {
     case GET_DOG:
       return payload;
+    case CREATE_LIKE:
+    case CREATE_DISLIKE:
     default:
       return state;
   }

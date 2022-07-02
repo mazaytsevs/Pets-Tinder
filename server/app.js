@@ -6,7 +6,7 @@ const path = require('path');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 // const upload = require('./middlewares/middlewares');
-const { User } = require('./db/models');
+const { User, Like } = require('./db/models');
 const Bcrypt = require('./utils/bcrypt');
 
 const app = express();
@@ -81,6 +81,16 @@ app.get('/logout', async (req, res) => {
     req.session.destroy();
     res.clearCookie('cook');
     res.sendStatus(200);
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+});
+
+app.post('/likedog', async (req, res) => {
+  try {
+    console.log(req.body);
+    console.log('ID ========>', userId);
   } catch (error) {
     console.log(error);
     res.json(error);
