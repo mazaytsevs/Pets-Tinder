@@ -14,9 +14,10 @@ code {
 
 .main-div {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
   align-items: center;
-  margin-top: 15px;
+  margin: 15px;
 }
 
 .pet-card {

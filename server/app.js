@@ -8,6 +8,7 @@ const FileStore = require('session-file-store')(session);
 // const upload = require('./middlewares/middlewares');
 const { User, Like } = require('./db/models');
 const Bcrypt = require('./utils/bcrypt');
+// const { checkSession } = require('./middlewares/middleware');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static(path.join(process.env.PWD, 'public')));
+// app.use(checkSession);
 
 const sessionConfig = {
   name: 'cook',
@@ -90,7 +92,41 @@ app.get('/logout', async (req, res) => {
 app.post('/likedog', async (req, res) => {
   try {
     console.log(req.body);
-    console.log('ID ========>', userId);
+    console.log('ID ========>', req.session.userId);
+    await Like.create({
+      user_id: req.session.userId,
+      pet_pic_url: req.body.pic_url,
+      type: req.body.type,
+      like: true,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+});
+
+app.post('/dislikedog', async (req, res) => {
+  try {
+    console.log(req.body);
+    console.log('ID ========>', req.session.userId);
+    await Like.create({
+      user_id: req.session.userId,
+      pet_pic_url: req.body.pic_url,
+      type: req.body.type,
+      like: false,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+});
+
+app.get('/favouritepets', async (req, res) => {
+  try {
+    const favouritepets = await Like.findAll({
+      where: { user_id: req.session.userId, like: true },
+    });
+    return res.json(JSON.parse(JSON.stringify(favouritepets)));
   } catch (error) {
     console.log(error);
     res.json(error);

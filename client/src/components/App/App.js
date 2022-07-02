@@ -6,13 +6,14 @@ import Registration from '../Registration/Registration';
 import DogList from '../DogList/DogList';
 
 import './App.css';
+import MainPage from '../MainPage/MainPage';
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<h1>Here will be content</h1>} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/dogs" element={<DogList />} />

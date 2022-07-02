@@ -15,7 +15,6 @@ function DogList() {
   }
   function preferingDog() {
     dispatch(createPreferingThunk(dog));
-    console.log(dog);
     dispatch(getDogThunk());
   }
 
@@ -35,7 +34,6 @@ function DogList() {
             <button type="button" className="btn btn-outline-secondary" onClick={showMeDog}>Hmm...</button>
             <button type="button" className="btn btn-outline-dark" onClick={dislikingingDog}>Dislike</button>
           </div>
-
         </div>
       </div>
     </div>
