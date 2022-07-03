@@ -45,6 +45,7 @@ app.use(session(sessionConfig));
 app.post('/register', async (req, res) => {
   try {
     const { email, password, name } = req.body;
+    console.log(req.body);
     const result = await User.create(
       {
         user_email: email,
@@ -55,7 +56,7 @@ app.post('/register', async (req, res) => {
     if (result.id) {
       req.session.userName = result.user_name;
       req.session.userId = result.id;
-      return res.sendStatus(200);
+      return res.json(result);
     }
     throw Error(result);
   } catch (error) {
@@ -65,6 +66,8 @@ app.post('/register', async (req, res) => {
 
 app.post('/login', async (req, res) => {
   try {
+    console.log('REQBODY', req.body);
+    console.log('SESSION', req.session);
     const { email, password } = req.body;
     const result = await User.findOne({ where: { user_email: email } });
     if (await Bcrypt.compare(password, result.user_password)) {
@@ -126,7 +129,21 @@ app.get('/favouritepets', async (req, res) => {
     const favouritepets = await Like.findAll({
       where: { user_id: req.session.userId, like: true },
     });
-    return res.json(JSON.parse(JSON.stringify(favouritepets)));
+    res.json(JSON.parse(JSON.stringify(favouritepets)));
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+});
+
+app.put('/renamepet', async (req, res) => {
+  const { pet_id, pet_name } = req.body;
+  try {
+    await Like.update(
+      { pet_name },
+      { where: { id: pet_id } },
+    );
+    res.sendStatus(200);
   } catch (error) {
     console.log(error);
     res.json(error);

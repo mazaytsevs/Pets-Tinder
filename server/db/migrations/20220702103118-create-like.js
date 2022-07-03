@@ -9,11 +9,15 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: {
           model: 'Users',
           key: 'id',
         },
         onDelete: 'CASCADE',
+      },
+      pet_name: {
+        type: Sequelize.STRING,
       },
       pet_pic_url: {
         type: Sequelize.STRING,

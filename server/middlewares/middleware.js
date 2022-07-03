@@ -1,18 +1,18 @@
 const checkSession = (req, res, next) => {
   if (req.session.user) {
     res.locals.user = {
-      // name: req.session.user.user_name,
+      userName: req.session.userName,
       id: req.session.userId,
     };
-    return next();
+    next();
   }
   next();
 };
 
 const checkLogin = (req, res, next) => {
   // ПРОВЕРКА АВТОРИЗАЦИИ ЮЗЕРА
-  if (req.session.user) {
-    return res.redirect('/');
+  if (req.session.userId) {
+    res.redirect('/');
   }
   next();
 };

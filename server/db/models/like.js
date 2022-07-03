@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Like.init({
     user_id: DataTypes.INTEGER,
+    pet_name: DataTypes.INTEGER,
     pet_pic_url: DataTypes.STRING,
     type: DataTypes.STRING,
     like: DataTypes.BOOLEAN,
