@@ -25,7 +25,7 @@ function MainPage() {
                 {pets.map((pet) => (
                   <div className="card pet-card" key={pet.id}>
                     <img src={pet.pet_pic_url} className="card-img-top" alt="dog" />
-                    <Button id={pet.id} />
+                    {/* <Button id={pet.id} /> */}
                   </div>
                 ))}
               </div>
