@@ -9,7 +9,7 @@ export const getDogThunk = () => async (dispatch) => {
   const response = await fetch(dogApiUrl);
   const result = await response.json();
   const dog = { pic_url: result.message, type: 'dog' };
-  console.log(dog);
+  // console.log(dog);
   dispatch(getDog(dog));
 };
 

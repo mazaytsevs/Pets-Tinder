@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getPetsThunk } from '../../redux/actions/pets';
-import Button from '../Button/Button';
+import ButtonName from '../Buttons/ButtonName';
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ function MainPage() {
     dispatch(getPetsThunk());
   }, []);
 
-  console.log('pets ====>', pets[0]);
+  console.log(pets);
 
   return (
     <div className="main-div">
@@ -22,10 +22,13 @@ function MainPage() {
           {pets[0]
             ? (
               <div className="favourite animals">
+                <h2>Your dogs:</h2>
                 {pets.map((pet) => (
                   <div className="card pet-card" key={pet.id}>
+                    {pet.pet_name !== null ? <h3>{pet.pet_name}</h3> : (
+                      <ButtonName id={pet.id} />
+                    )}
                     <img src={pet.pet_pic_url} className="card-img-top" alt="dog" />
-                    {/* <Button id={pet.id} /> */}
                   </div>
                 ))}
               </div>

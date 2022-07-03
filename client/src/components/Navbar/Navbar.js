@@ -5,14 +5,14 @@ import { logoutUserThunk } from '../../redux/actions/user';
 
 function Navbar() {
   const user = useSelector((state) => state.user);
-  console.log(user.name);
+  // console.log(user.name);
   const dispatch = useDispatch();
 
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-light">
         <div className="container-fluid">
-          <Link to="/" className="navbar-brand">Home Page</Link>
+          <Link to="/" className="navbar-brand">Home</Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -27,7 +27,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to="/dogs" className="nav-link active" aria-current="page">Dogs</Link>
+                <Link to="/dogs" className="nav-link active" aria-current="page">Take the dog</Link>
               </li>
               {!user.user_name
               && (

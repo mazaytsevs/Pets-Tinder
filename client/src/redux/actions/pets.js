@@ -6,20 +6,20 @@ export const createPetName = (data) => ({ type: CREATE_PET_NAME, payload: data }
 export const getPetsThunk = () => async (dispatch) => {
   const response = await fetch('/favouritepets');
   const result = await response.json();
-  console.log('PEEEEEEEEEEEETS', result);
+  // console.log('PEEEEEEEEEEEETS', result);
   dispatch(getPets(result));
 };
 
 export const createPetNameThunk = (body) => async () => {
-  console.log(body)
-  // await fetch(
-  //   '/renamepet',
-  //   {
-  //     method: 'PUT',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(body),
-  //   },
-  // );
+  console.log(body);
+  await fetch(
+    '/renamepet',
+    {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  );
 };
