@@ -19,6 +19,12 @@ module.exports = {
       pet_name: {
         type: Sequelize.STRING,
       },
+      pet_sex: {
+        type: Sequelize.STRING,
+      },
+      pet_age: {
+        type: Sequelize.INTEGER,
+      },
       pet_pic_url: {
         type: Sequelize.STRING,
       },

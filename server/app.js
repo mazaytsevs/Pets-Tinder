@@ -95,10 +95,11 @@ app.get('/logout', async (req, res) => {
 app.post('/likedog', async (req, res) => {
   try {
     console.log(req.body);
-    console.log('ID ========>', req.session.userId);
     await Like.create({
       user_id: req.session.userId,
       pet_pic_url: req.body.pic_url,
+      pet_sex: req.body.pet_sex,
+      pet_age: req.body.pet_age,
       type: req.body.type,
       like: true,
     });

@@ -19,7 +19,6 @@ function Button(petToRename) {
     e.preventDefault();
     if (form.petName) {
       const pet = { pet_id: id, pet_name: form.petName };
-      // console.log('PEEEEEEET', pet);
       dispatch(createPetNameThunk(pet));
       setFlagForName(!flagForName);
       setNewName(form.petName);

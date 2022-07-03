@@ -20,6 +20,15 @@ code {
   margin: 15px;
 }
 
+.favourite-animals {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-flow: inherit; */
+  margin: 15px;
+}
+
 .pet-card {
   display: flex;
   justify-content: center;
@@ -27,7 +36,7 @@ code {
   width: 25rem;
   height: 25rem;
   border-style: solid;
-  margin-top: 50px;
+  margin: 30px 20px;
 }
 
 .card-img-top {
