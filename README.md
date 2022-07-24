@@ -15,6 +15,7 @@ ___
 <img align="left" alt="Bootstrap" width="30px" src="https://img.icons8.com/color/344/bootstrap.png" />
 <br/>
 <br/>
+А также: Sequelize, Sessions, BCrypt и др.
 
 ___
 
