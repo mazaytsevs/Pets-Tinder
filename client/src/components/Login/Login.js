@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { getUserThunk } from '../../redux/actions/user';
 
 function Registration() {
   const [form, setForm] = useState({});
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (user.user_name) {
+      navigate('/');
+    }
+  }, [user]);
 
   function handleSubmit(e) {
     e.preventDefault();

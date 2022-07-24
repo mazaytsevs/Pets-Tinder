@@ -12,6 +12,7 @@ function MainPage() {
 
   useEffect(() => {
     dispatch(getPetsThunk());
+    console.log('IM');
   }, []);
 
   console.log(pets);

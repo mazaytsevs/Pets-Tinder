@@ -34,13 +34,14 @@ const sessionConfig = {
 
 app.use(session(sessionConfig));
 
-// settimout for response
-// app.use((req, res, next) => {
-//   req.setTimeout(20000, () => {
-//     // call back function is called when request timed out.
-//   });
-//   next();
-// });
+app.get('/checkauth', async (req, res) => {
+  try {
+    const result = await User.findOne({ where: { id: req.session.userId } });
+    return res.json(result);
+  } catch (error) {
+    return res.json(error);
+  }
+});
 
 app.post('/register', async (req, res) => {
   try {
@@ -116,6 +117,8 @@ app.post('/dislikedog', async (req, res) => {
     await Like.create({
       user_id: req.session.userId,
       pet_pic_url: req.body.pic_url,
+      pet_sex: req.body.pet_sex,
+      pet_age: req.body.pet_age,
       type: req.body.type,
       like: false,
     });

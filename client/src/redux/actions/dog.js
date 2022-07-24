@@ -8,15 +8,12 @@ export const getDogThunk = () => async (dispatch) => {
   const dogApiUrl = 'https://dog.ceo/api/breeds/image/random';
   const response = await fetch(dogApiUrl);
   const result = await response.json();
-  // body[pet_sex] = `${['male', 'female'][(Math.floor(Math.random() * (1 - 0 + 1) + 0))]}`;
-  // body[pet_age] = `${(Math.floor(Math.random() * (20 - 0 + 1) + 0))}`;
   const dog = {
     pic_url: result.message,
     type: 'dog',
     pet_sex: ['male', 'female'][(Math.floor(Math.random() * (1 - 0 + 1) + 0))],
     pet_age: (Math.floor(Math.random() * (20 - 0 + 1) + 0)),
   };
-  // console.log(dog);
   dispatch(getDog(dog));
 };
 

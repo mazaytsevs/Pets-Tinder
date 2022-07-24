@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logoutUserThunk } from '../../redux/actions/user';
 
 function Navbar() {
   const user = useSelector((state) => state.user);
   // console.log(user.name);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [e, setE] = useState(null);
+
+  const handleInput = (event) => { setE(event); };
+
+  console.log(e);
+
+  useEffect(() => {
+    if (!user.user_name) {
+      navigate('/');
+    }
+  }, [user]);
 
   return (
     <div>
@@ -42,11 +54,20 @@ function Navbar() {
               </li>
               )}
               {user.user_name
-              && (
-              <li className="nav-item">
-                <Link to="/logout" className="nav-link" onClick={() => { dispatch(logoutUserThunk()); }}>Logout</Link>
-              </li>
-              )}
+               && (
+               <li className="nav-item">
+                 <button
+                   type="button"
+                   className="nav-link logout-button"
+                   onClick={() => {
+                     dispatch(logoutUserThunk());
+                   }}
+                 >
+                   Logout
+
+                 </button>
+               </li>
+               )}
               {user.user_name
                 && (
                   <li className="nav-item">
@@ -60,7 +81,7 @@ function Navbar() {
                 )}
             </ul>
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <input onChange={handleInput} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
               <button className="btn btn-outline-danger" type="submit">Search</button>
             </form>
           </div>

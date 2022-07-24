@@ -4,14 +4,14 @@ export const getPets = (data) => ({ type: GET_PETS, payload: data });
 export const createPetName = (data) => ({ type: CREATE_PET_NAME, payload: data });
 
 export const getPetsThunk = () => async (dispatch) => {
+  console.log('IM HERE');
   const response = await fetch('/favouritepets');
   const result = await response.json();
-  // console.log('PEEEEEEEEEEEETS', result);
+  console.log(result, 'resuuuult');
   dispatch(getPets(result));
 };
 
 export const createPetNameThunk = (body) => async () => {
-  console.log(body);
   await fetch(
     '/renamepet',
     {

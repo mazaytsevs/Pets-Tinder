@@ -2,10 +2,10 @@ import { GET_USER, CREATE_USER, LOGOUT_USER } from '../constants/constants';
 
 const initialState = {};
 
-export const getInitState = () => {
-  const stateFromLS = JSON.parse(window.localStorage.getItem('redux'));
-  return stateFromLS || initialState;
-};
+// export const getInitState = () => {
+//   const stateFromLS = JSON.parse(window.localStorage.getItem('redux'));
+//   return stateFromLS || initialState;
+// };
 
 const userReducer = (state = initialState, { type, payload } = {}) => {
   // const { type, payload } = action;
