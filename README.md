@@ -9,7 +9,7 @@ ___
 <img align="left" alt="JavaScript" width="30px" src="https://img.icons8.com/color/344/javascript--v2.png" />
 <img align="left" alt="React" width="30px" src="https://img.icons8.com/color/344/react-native.png" />
 <img align="left" alt="Redux" width="30px" src="https://img.icons8.com/color/344/redux.png" />
-<img align="left" alt="API" width="30px" src="https://img.icons8.com/ios/344/api-settings.png" />
+<img align="left" alt="API" width="30px" src="https://img.icons8.com/nolan/344/api-settings.png" />
 <img align="left" alt="NodeJS" width="30px" src="https://img.icons8.com/fluency/344/node-js.png" />
 <img align="left" alt="PostgreSQL" width="30px" src="https://img.icons8.com/color/344/postgreesql.png" />
 <img align="left" alt="Bootstrap" width="30px" src="https://img.icons8.com/color/344/bootstrap.png" />
